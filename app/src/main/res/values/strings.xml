@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Digital ID</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="retypePassword">Re-type Password</string>
+    <string name="resetPassword">Reset Password</string>
+    <string name="login">Login</string>
+    <string name="forgotpassword">Forgot your password?</string>
+    <string name="signUp">Sign up</string>
+    <string name="name">Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="dob">DOB</string>
+    <string name="countryOfOrigin">Country of Origin</string>
+    <string name="selectCountry">Select Country</string>
+    <string name="documentType">Document Type</string>
+    <string name="selectDocumentType">Select document type</string>
+    <string name="share">Share</string>
+    <string name="notifications">Notifications</string>
+    <string name="delete">Delete</string>
+
+    <string name="newDocument">New Document</string>
+    <string name="takeAphotoOfDocument">Take a photo of document</string>
+
+    <string name="validate">Validate</string>
+    <string name="account">Account</string>
+</resources>
