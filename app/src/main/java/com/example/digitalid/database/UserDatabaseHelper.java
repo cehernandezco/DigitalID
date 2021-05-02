@@ -62,6 +62,7 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
     private static final String DROP_USER_TABLE_ST = "DROP TABLE IF EXISTS " + TABLE_USER;
     private static final String GET_ALL_USERS_ST = "SELECT * FROM " + TABLE_USER;
     private static final String GET_USER_BY_ID = "SELECT * FROM " + TABLE_USER + " WHERE " + COL_ID + "= ?";
+    private static final String GET_USER_BY_USERNAME_AND_PASSWORD = "SELECT * FROM " + TABLE_USER + " WHERE " + COL_USERNAME + "= ? AND "+ COL_PASSWORD + "=?";
     private static final String UPDATE_USER_BIOMETRICS = "UPDATE " + TABLE_USER + " SET " + COL_LOGINBIOMETRICS + " = ?" + " WHERE " + COL_ID + "= ?";
     private static final String UPDATE_USER_PASSWORD = "UPDATE " + TABLE_USER + " SET " + COL_PASSWORD + " = ?" + " WHERE " + COL_ID + "= ?";
 
@@ -235,6 +236,28 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(UPDATE_USER_PASSWORD, new String[ ]{ password, id.toString() });
         return true;
+    }
+
+    public User getUserByUsernameAndPassword(String username, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        User user = null;
+        Cursor cursor = db.rawQuery(GET_USER_BY_USERNAME_AND_PASSWORD, new String[]{username,password});
+
+        if(cursor.getCount() > 0 ){
+            while (cursor.moveToNext()){
+                Long id = cursor.getLong(0);
+                String name = cursor.getString(1);
+                String lastname = cursor.getString(2);
+                Integer country = cursor.getInt(3);
+                String email = cursor.getString(4);
+                Date dob = new Date(cursor.getString(7));
+
+                user = new User(id, name, lastname, country, email, username, dob);
+            }
+        }
+        cursor.close();
+        return user;
+
     }
 }
 

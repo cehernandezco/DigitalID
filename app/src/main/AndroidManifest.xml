@@ -9,6 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DigitalID">
+        <activity
+            android:name=".activities.HomeMainActivity"
+            android:label="@string/title_activity_home_main"></activity>
+        <activity
+            android:name=".activities.AddUserScrollingActivity"
+            android:label="@string/title_activity_add_user_scrolling"
+            android:theme="@style/Theme.DigitalID.NoActionBar" />
+        <activity android:name=".activities.SignUpActivity" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -46,5 +46,9 @@ public class UserDataService {
     public boolean updateLoginBiometrics(Long id, Integer loginBiometrics){
         return sqlite.update_loginBiometricsUser(id, loginBiometrics);
     }
+
+    public User getUserByUsernameAndPassword(String username, String password) {
+        return sqlite.getUserByUsernameAndPassword(username, password);
+    }
 }
 
